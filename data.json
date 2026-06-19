@@ -10,11 +10,11 @@
       "code": "UK",
       "headlineCpiMoM": "+0.2",
       "headlineCpiMoMSrc": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/may2026",
-      "headlineCpiYoY": "+2.8",
+      "headlineCpiYoY": "+3.0",
       "headlineCpiYoYSrc": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/may2026",
       "coreCpiMoM": "n/a",
       "coreCpiMoMSrc": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/may2026",
-      "coreCpiYoY": "+2.6",
+      "coreCpiYoY": "+2.8",
       "coreCpiYoYSrc": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/may2026",
       "ppiMoM": "+0.5",
       "ppiMoMSrc": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/producerpriceinflation/may2026",
@@ -29,7 +29,7 @@
       "code": "EA",
       "headlineCpiMoM": "+0.1",
       "headlineCpiMoMSrc": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-17062026-ap",
-      "headlineCpiYoY": "+3.2",
+      "headlineCpiYoY": "+2.0",
       "headlineCpiYoYSrc": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-17062026-ap",
       "coreCpiMoM": "+0.3",
       "coreCpiMoMSrc": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-17062026-ap",
@@ -162,5 +162,18 @@
     "UK CPI and PPI for June 2026: mid July 2026",
     "US CPI and PPI for June 2026: mid July 2026",
     "Japan CPI for June 2026: late July 2026"
-  ]
+  ],
+  "fetchStatus": {
+    "ranAt": "2026-06-19",
+    "updated": [
+      "UK.headlineCpiYoY: +2.8 -> +3.0",
+      "UK.coreCpiYoY: +2.6 -> +2.8",
+      "EA.headlineCpiYoY: +3.2 -> +2.0"
+    ],
+    "fellBack": [
+      "EA: kept old ppiYoY",
+      "US: kept old headlineCpiYoY, ppiYoY",
+      "JP: kept old headlineCpiYoY, ppiYoY"
+    ]
+  }
 }
