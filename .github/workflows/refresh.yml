@@ -1,0 +1,35 @@
+name: Refresh inflation data
+
+on:
+  schedule:
+    - cron: "0 6 24 * *"   # 06:00 UTC on the 24th of every month
+  workflow_dispatch:        # adds a manual "Run workflow" button
+
+permissions:
+  contents: write           # lets the flow commit the updated data.json
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 pdfplumber
+
+      - name: Run the scraper
+        run: python fetch_data.py
+
+      - name: Commit any changes
+        run: |
+          git config user.name "inflation-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "Auto refresh data.json"
+          git push
