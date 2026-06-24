@@ -1,7 +1,7 @@
 {
   "meta": {
     "reportingPeriod": "May 2026",
-    "lastRefreshed": "2026-06-19",
+    "lastRefreshed": "2026-06-24",
     "note": "All figures provisional and subject to revision by the issuing statistical office."
   },
   "markets": [
@@ -74,12 +74,12 @@
       "coreCpiYoY": "+1.8",
       "coreCpiYoYSrc": "https://www.stat.go.jp/english/data/cpi/index.htm",
       "ppiMoM": "+0.9",
-      "ppiMoMSrc": "https://www.boj.or.jp/en/statistics/pi/cgpi_release/index.htm",
-      "ppiYoY": "+2.7",
-      "ppiYoYSrc": "https://www.boj.or.jp/en/statistics/pi/cgpi_release/index.htm",
+      "ppiMoMSrc": "https://www.boj.or.jp/en/statistics/pi/cgpi_release/cgpi2605.pdf",
+      "ppiYoY": "+6.3",
+      "ppiYoYSrc": "https://www.boj.or.jp/en/statistics/pi/cgpi_release/cgpi2605.pdf",
       "referenceDate": "May 2026 (PPI = CGPI)",
       "ppiLabel": "CGPI (producer equivalent)",
-      "commentary": "The calm market. Headline rose to 1.5%, core core (ex fresh food and energy) at 1.8%, the ex fresh food measure at 1.4%. CGPI rose 2.7% with import prices up 3.0% in the month, so cost pressure arrives through imported energy and a weak yen rather than domestic demand."
+      "commentary": "Calm on the shelf, hot at the factory. Headline held at 1.5%, core core (ex fresh food and energy) eased to 1.8% and the ex fresh food measure sat at 1.4%, all flattered by Takaichi government fuel and utility subsidies. But CGPI jumped to 6.3% year on year, the fastest since March 2023, with import prices up 3.0% in the month, so the cost pressure is real and arriving through imported energy and a weak yen. Subsidies are masking it on the consumer side, not removing it."
     }
   ],
   "euroMembers": [
@@ -92,7 +92,7 @@
       "coreYoY": "+2.6",
       "coreYoYSrc": "https://www.destatis.de/EN/Press/2026/06/PE26_199_611.html",
       "ppiYoY": "+1.7",
-      "ppiYoYSrc": "https://www.destatis.de/EN/Themes/Economy/Prices/Producer-Price-Index-For-Industrial-Products/_node.html",
+      "ppiYoYSrc": "https://www.destatis.de/EN/Press/2026/05/PE26_169_61241.html",
       "referenceDate": "HICP May 2026; PPI Apr 2026",
       "note": "Eased to 2.7% from 2.9% as energy and food cooled, though core firmed to 2.6%. Producer prices a subdued 1.7%."
     },
@@ -117,10 +117,10 @@
       "hicpYoYSrc": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-17062026-ap",
       "coreYoY": "+1.7",
       "coreYoYSrc": "https://www.istat.it/en/press-release/consumer-prices-may-2026/",
-      "ppiYoY": "+5.1",
-      "ppiYoYSrc": "https://www.istat.it/en/tag/industrial-and-services-producer-prices/",
+      "ppiYoY": "+6.8",
+      "ppiYoYSrc": "https://www.istat.it/en/press-release/industrial-and-construction-producer-prices-april-2026/",
       "referenceDate": "HICP May 2026; PPI Apr 2026",
-      "note": "Jumped to 3.3% from 2.8%, driven by non-regulated energy prices rising to 12.5%. Core a contained 1.7%."
+      "note": "Jumped to 3.3% from 2.8%, driven by non-regulated energy prices rising to 12.5%. Core a contained 1.7%. Producer prices the hottest of the four at 6.8%, up 8.8% in the domestic market."
     },
     {
       "name": "Spain",
@@ -136,25 +136,25 @@
       "note": "Highest of the four at 3.6%, with core up to 3.0%, the only member of the four showing broad based pressure."
     }
   ],
-  "euroMembersNote": "Headline HICP year on year is shown on the comparable Eurostat basis (final May 2026). Core measures differ slightly by national office (broadly excluding energy and food). PPI is April 2026, the latest available: Germany +1.7%, Italy +5.1%, euro area aggregate +4.9%. France and Spain country PPI are not in the headline release and are marked n/a.",
+  "euroMembersNote": "Headline HICP year on year is shown on the comparable Eurostat basis (final May 2026). Core measures differ slightly by national office (broadly excluding energy and food). PPI is held at April 2026 for all four to stay comparable with the euro area aggregate (+4.9%), which is the latest published month; the May euro area figure is due early July. On that April basis: Germany +1.7%, Italy +6.8%. France and Spain country PPI are not in the headline release and are marked n/a. Note: Germany has since published its May PPI at +2.2%, but April is retained here so the cross country comparison holds.",
   "signals": [
     {
-      "title": "Energy is the shared shock",
-      "observe": "US wholesale gasoline +23.4%, EA energy +10.9%, UK crude oil inputs +71.8% year on year, Japan import prices +3.0% in the month, with Brent near $105.",
-      "why": "Energy lands in producer prices first and consumer prices later, so May PPI is a preview of consumer pressure still to come.",
-      "action": "Lock energy linked contracts and review fuel surcharge clauses now. Stress test budgets for a one to three month consumer pass through, prioritising US and European exposure."
+      "title": "Energy drove May, but the spot price has turned",
+      "observe": "May releases were energy led across the board: US wholesale gasoline +23.4%, EA energy +10.9%, UK crude oil inputs +71.8% year on year, Japan import prices +3.0% in the month. Since then Brent has kept falling, to around $77 by 24 June, a near three month low, as the US-Iran peace framework held and Iran was licensed to sell oil again.",
+      "why": "The May data captured the peak. With crude now easing, the pipeline pressure that fed those numbers should soften over the next month or two rather than build, so do not over hedge at the top.",
+      "action": "Lock genuinely long dated energy exposure if it still makes sense, but avoid chasing the May spike. Review fuel surcharge clauses for ratchets that lag a falling oil price and leave you overpaying."
     },
     {
       "title": "Producer prices running ahead of consumer prices everywhere",
-      "observe": "US PPI 6.5% vs CPI 4.2%, EA 4.9% vs 3.2%, UK input 8.7% vs output 4.0%.",
-      "why": "Suppliers either absorb the cost and take a margin hit, risking later catch up pricing or distress, or pass it through and lift your input costs directly.",
-      "action": "Bring forward renegotiation of key supplier contracts. Consider indexation terms that share risk rather than dump it. Watch for price increase requests in Q3."
+      "observe": "Japan CGPI 6.3% vs CPI 1.5%, the widest gap of the set. US PPI 6.5% vs CPI 4.2%, EA 4.9% vs 3.2%, UK input 8.7% vs output 4.0%, Italy PPI 6.8% vs HICP 3.3%.",
+      "why": "Suppliers either absorb the cost and take a margin hit, risking later catch up pricing or distress, or pass it through and lift your input costs directly. Japan is the clearest case: subsidies hold the consumer number down while producer costs run hot.",
+      "action": "Bring forward renegotiation of key supplier contracts. Consider indexation terms that share risk rather than dump it. Watch for price increase requests in Q3, especially from Japanese and Italian suppliers."
     },
     {
-      "title": "US and Japan inflation gap",
-      "observe": "US headline 4.2% against Japan 1.5%, a gap with sourcing and currency implications.",
-      "why": "A strong dollar against a weak yen changes the landed cost maths on US versus Japanese sourced inputs.",
-      "action": "Revisit sourcing mix toward lower inflation regions where supply is flexible. Hedge material USD exposure where contracts allow."
+      "title": "US and Japan consumer gap hides a producer convergence",
+      "observe": "US headline 4.2% against Japan 1.5% on the consumer side, but their producer measures are close: US PPI 6.5%, Japan CGPI 6.3%.",
+      "why": "On the shelf the two look worlds apart, but factory gate costs are nearly level. A strong dollar against a weak yen still changes the landed cost maths, and Japanese subsidies that mask consumer inflation can be withdrawn.",
+      "action": "Do not read Japan as a cheap, stable source on the headline alone. Stress test Japanese sourced inputs against the 6.3% producer figure and hedge material USD exposure where contracts allow."
     }
   ],
   "upcoming": [
