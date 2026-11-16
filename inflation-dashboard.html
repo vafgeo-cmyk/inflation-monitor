@@ -153,16 +153,25 @@ const EMBEDDED_DATA = /*DATA_START*/{
   "upcoming":["Eurozone PPI for May 2026: early July 2026","UK CPI and PPI for June 2026: mid July 2026","US CPI and PPI for June 2026: mid July 2026","Japan CPI for June 2026: late July 2026"]
 }/*DATA_END*/;
 
-const SOURCES = [
-  {m:"UK CPI",t:"ONS, Consumer price inflation, May 2026",u:"https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/may2026"},
-  {m:"UK PPI",t:"ONS, Producer price inflation, May 2026",u:"https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/producerpriceinflation/may2026"},
-  {m:"EA HICP",t:"Eurostat, Euro area annual inflation, May 2026",u:"https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-17062026-ap"},
-  {m:"EA PPI",t:"Eurostat, Industrial producer prices, Apr 2026",u:"https://ec.europa.eu/eurostat/web/products-euro-indicators/w/4-03062026-ap"},
-  {m:"US CPI",t:"US BLS, Consumer Price Index, May 2026",u:"https://www.bls.gov/news.release/cpi.nr0.htm"},
-  {m:"US PPI",t:"US BLS, Producer Price Index, May 2026",u:"https://www.bls.gov/news.release/ppi.nr0.htm"},
-  {m:"Japan CPI",t:"Statistics Bureau of Japan, CPI, May 2026",u:"https://www.stat.go.jp/english/data/cpi/index.htm"},
-  {m:"Japan CGPI",t:"Bank of Japan, Corporate Goods Price Index, May 2026",u:"https://www.boj.or.jp/en/statistics/pi/cgpi_release/index.htm"}
-];
+// Sources are built from the *Src fields in the data, so they always match the figures shown.
+const PUBLISHERS = {
+  "www.ons.gov.uk":"ONS","ec.europa.eu":"Eurostat","www.bls.gov":"US BLS",
+  "www.stat.go.jp":"Statistics Bureau of Japan","www.boj.or.jp":"Bank of Japan",
+  "www.destatis.de":"Destatis","www.insee.fr":"INSEE","www.istat.it":"Istat","www.ine.es":"INE"
+};
+function buildSources(d){
+  const map={};
+  function add(label,url,ref){
+    if(!url) return;
+    if(!map[url]) map[url]={labels:[],ref:ref,u:url};
+    if(map[url].labels.indexOf(label)<0) map[url].labels.push(label);
+  }
+  const metrics=[["headlineCpiMoM","CPI"],["headlineCpiYoY","CPI"],["coreCpiMoM","Core"],["coreCpiYoY","Core"],["ppiMoM","PPI"],["ppiYoY","PPI"]];
+  (d.markets||[]).forEach(m=>metrics.forEach(x=>add(m.code+" "+x[1],m[x[0]+"Src"],m.referenceDate)));
+  (d.euroMembers||[]).forEach(m=>[["hicpMoM","HICP"],["hicpYoY","HICP"],["coreYoY","Core"],["ppiYoY","PPI"]].forEach(x=>add(m.name+" "+x[1],m[x[0]+"Src"],m.referenceDate)));
+  return Object.keys(map).map(k=>map[k]);
+}
+function shortRef(r){ return String(r||"").split("(")[0].trim(); }
 
 function colour(v){
   const n=parseFloat(v); if(isNaN(n)) return "var(--muted)";
@@ -234,8 +243,11 @@ function render(d){
 
   document.getElementById("upcoming").innerHTML=d.upcoming.map(u=>`<span>${u}</span>`).join("");
 
-  document.getElementById("sources").innerHTML=SOURCES.map(s=>`
-    <div class="src"><b>${s.m}</b> &middot; <a href="${s.u}" target="_blank" rel="noopener">${s.t}</a></div>`).join("");
+  document.getElementById("sources").innerHTML=buildSources(d).map(s=>{
+    let host=""; try{host=new URL(s.u).hostname;}catch(e){}
+    const pub=PUBLISHERS[host]||host;
+    return `<div class="src"><b>${s.labels.join(", ")}</b> &middot; <a href="${s.u}" target="_blank" rel="noopener">${pub} release</a> <span style="color:var(--faint)">(${shortRef(s.ref)})</span></div>`;
+  }).join("");
 
   document.getElementById("footNote").textContent=d.meta.note;
 }
